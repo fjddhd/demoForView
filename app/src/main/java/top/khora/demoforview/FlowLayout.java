@@ -94,7 +94,8 @@ public class FlowLayout extends ViewGroup {
         int size = list.size();
         for (int i = 0; i < size; i++) {
             Object item = list.get(i);
-            View inflate = LayoutInflater.from(getContext()).inflate(res, null);
+            View inflate = LayoutInflater.from(getContext()).inflate(res, null);//item背景
+            //使用时重写getCover方法对viewHolder内容执行相关操作方法
             mItemView.getCover(item, new ViewHolder(inflate), inflate, i);
             addView(inflate);
         }
@@ -109,6 +110,7 @@ public class FlowLayout extends ViewGroup {
 
         public ViewHolder(View mConvertView) {
             this.mConvertView = mConvertView;
+            //保证所有viewHolder构造之后（adapter把list中所有要添加的view内容加进来后），才让mView保持初始化状态
             mViews = new SparseArray<>();
         }
 

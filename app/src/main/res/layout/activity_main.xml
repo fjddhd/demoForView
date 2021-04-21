@@ -1,17 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_main_header"
+            android:background="#80D8FF"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_main_head"
+            android:text="retrofit"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vp+frag"
+            android:id="@+id/btn_vp_activity"/>
+    </LinearLayout>
 
-    <top.khora.demoforview.FlowLayout
-        android:layout_height="match_parent"
+    <top.khora.demoforview.FlowLayout2
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/mFlowLayout">
+    </top.khora.demoforview.FlowLayout2>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFEE58"
+        android:id="@+id/rv_main">
 
+    </androidx.recyclerview.widget.RecyclerView>
 
-    </top.khora.demoforview.FlowLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
