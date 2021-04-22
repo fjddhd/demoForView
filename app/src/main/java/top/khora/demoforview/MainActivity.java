@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv_header;
     private Button btnHeader;
     private Button btn_startVp;
+    private Button btn_lifecycle;
+    private Button btn_lifecycleService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,20 @@ public class MainActivity extends AppCompatActivity {
         tv_header = findViewById(R.id.tv_main_header);
         btnHeader = findViewById(R.id.btn_main_head);
         btn_startVp = findViewById(R.id.btn_vp_activity);
+        btn_lifecycle = findViewById(R.id.btn_lifecycle);
+        btn_lifecycleService = findViewById(R.id.btn_lifecycleService);
+        btn_lifecycleService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,LcServiceActivity.class));
+            }
+        });
+        btn_lifecycle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,LifeCycleActivity.class));
+            }
+        });
         btn_startVp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

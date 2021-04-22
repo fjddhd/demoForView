@@ -23,12 +23,23 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="vp+frag"
             android:id="@+id/btn_vp_activity"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LifecycleActivity"
+            android:id="@+id/btn_lifecycle"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LifecycleServiceActivity"
+            android:id="@+id/btn_lifecycleService"/>
     </LinearLayout>
 
     <top.khora.demoforview.FlowLayout2
