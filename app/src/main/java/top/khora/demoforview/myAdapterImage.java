@@ -16,6 +16,9 @@ import com.bumptech.glide.RequestManager;
 
 import java.util.List;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+
 class myAdapterImage extends RecyclerView.Adapter{
     private List<String> viewContentList;
     private Context mContext;

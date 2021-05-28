@@ -8,7 +8,9 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import top.khora.demoforview.Fragment.FourFragment;
@@ -32,6 +34,10 @@ public class VpFragActivity extends AppCompatActivity implements View.OnClickLis
         InitViewPager();
         //初始化布局
         InitView();
+        FragmentManager supportFragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
+        fragmentTransaction.add(new OneFragment(),"123");
+        fragmentTransaction.commitNow();
 
     }
 

@@ -15,6 +15,11 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+
 public class MyLocationObserver implements LifecycleObserver {
     public static final String TAG="MyLocationObserver";
 

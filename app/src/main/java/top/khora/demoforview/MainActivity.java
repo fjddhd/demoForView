@@ -1,13 +1,18 @@
 package top.khora.demoforview;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,8 +27,17 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
+import javax.annotation.Nullable;
+import javax.inject.Inject;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.ResponseBody;
+import okhttp3.WebSocket;
+import okhttp3.WebSocketListener;
+import okio.ByteString;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -38,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_startVp;
     private Button btn_lifecycle;
     private Button btn_lifecycleService;
+    private Button btn_myRecyclerView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
         btn_startVp = findViewById(R.id.btn_vp_activity);
         btn_lifecycle = findViewById(R.id.btn_lifecycle);
         btn_lifecycleService = findViewById(R.id.btn_lifecycleService);
+        btn_myRecyclerView = findViewById(R.id.btn_myrecyclerview);
+        btn_myRecyclerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,MyRecyclerViewActivity.class));
+            }
+        });
         btn_lifecycleService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,13 +105,45 @@ public class MainActivity extends AppCompatActivity {
                 holder.setText(R.id.tv_label_name,item);
             }
         });
-        ViewPager vp;
+
         RecyclerView rv=findViewById(R.id.rv_main);
         LinearLayoutManager mLinearLayoutManager =
                 new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         rv.setLayoutManager(mLinearLayoutManager);
         rv.setAdapter(new myAdapterImage(list,this));
+
+        LinearLayout linearLayout_btns = findViewById(R.id.ll_btns);
+        linearLayout_btns.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.w("fjddhd","touch: "+event.toString());
+                return false;
+            }
+        });
+        linearLayout_btns.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Log.w("fjddhd","onLongClick");
+                return false;
+            }
+        });
+        linearLayout_btns.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.w("fjddhd","onClick");
+            }
+        });
+        //动态添加view
+        TextView textView_NewAdded = new TextView(this);
+        textView_NewAdded.setText("新增View");
+        ViewGroup.LayoutParams layoutParams=new LinearLayout.LayoutParams
+                (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        textView_NewAdded.setLayoutParams(layoutParams);
+        textView_NewAdded.setGravity(Gravity.CENTER_HORIZONTAL);
+        linearLayout_btns.addView(textView_NewAdded);
+
     }
+
     public void retrofitHeader(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://borche.khora.top/")

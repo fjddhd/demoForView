@@ -131,7 +131,7 @@ public class FlowLayout2 extends ViewGroup {
         }
         //确定自己大小
         int heightMode=MeasureSpec.getMode(heightMeasureSpec);
-        int widthMode = MeasureSpec.getSize(widthMeasureSpec);
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         setMeasuredDimension(MeasureSpec.makeMeasureSpec(needWidth,widthMode)
                 ,MeasureSpec.makeMeasureSpec(needHeight,heightMode));
 

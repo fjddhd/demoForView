@@ -24,6 +24,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/ll_btns"
         android:orientation="vertical">
         <Button
             android:layout_width="wrap_content"
@@ -40,6 +41,23 @@
             android:layout_height="wrap_content"
             android:text="LifecycleServiceActivity"
             android:id="@+id/btn_lifecycleService"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MyRecyclerViewActivity"
+            android:id="@+id/btn_myrecyclerview"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:background="#FF80AB"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="#84FFFF" />
     </LinearLayout>
 
     <top.khora.demoforview.FlowLayout2

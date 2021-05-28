@@ -30,6 +30,7 @@
         <activity android:name=".LifeCycleActivity"/>
         <activity android:name=".LcServiceActivity"/>
         <service android:name=".Service.MyLocationService"/>
+        <activity android:name=".MyRecyclerViewActivity"/>
     </application>
 
 </manifest>

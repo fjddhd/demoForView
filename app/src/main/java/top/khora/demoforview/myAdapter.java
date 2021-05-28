@@ -31,9 +31,9 @@ class myAdapter extends RecyclerView.Adapter{
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {//缓存拿不到vh才调用
+    public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {//缓存拿不到vh才调用
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent,false);
-        RecyclerView.ViewHolder viewHolder = new myViewHolder(inflate);
+        myViewHolder viewHolder = new myViewHolder(inflate);
         return viewHolder;
     }
 
